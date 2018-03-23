@@ -12,7 +12,7 @@ include '../conexion/conexion.php';
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet"  href="../cdn/sweetalert2.css">
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-	<title></title>
+	<title>Proyecto</title>
 </head>
 <body>
 
@@ -29,19 +29,23 @@ switch ($c) {
 		$carpeta = '../usuarios/';
 		break;
 
-		#para el login de usuario
-		case 'home':
-			$carpeta = '../inicio/';# si el logueo fue exitoso nos redirecciona a la carpeta de inicio 
-			break;
-		#por si no es exitoso el logueo
-		case 'salir':
-			$carpeta = '../';
-			break;
+	#para el login de usuario
+	case 'home':
+		$carpeta = '../inicio/';# si el logueo fue exitoso nos redirecciona a la carpeta de inicio 
+		break;
+	#por si no es exitoso el logueo
+	case 'salir':
+		$carpeta = '../';
+		break;
 
-		#caso para actualizar la foto de perfil		
-		case 'pe':
-			$carpeta = '../perfil/';
-			break;			
+	#caso para actualizar la foto de perfil		
+	case 'pe':
+		$carpeta = '../perfil/';
+		break;	
+
+	case 'cli':
+		$carpeta = '../clientes/';
+		break;			
 }
 
 switch ($p) {
