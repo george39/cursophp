@@ -44,6 +44,54 @@
   </div>
 </div>
 
+<!--4 buscar clientes -->
+<?php
+#se pregunta que nivel de usuario tiene
+if ($_SESSION['nivel'] == 'ADMINISTRADOR') { 
+  $sel = $con->prepare("SELECT * FROM clientes ");
+}else {
+  $sel = $con->prepare("SELECT * FROM clientes WHERE asesor = ? ");
+  $sel->bind_param('s', $_SESSION['nombre']);
+}
+$sel->execute(); #para que se ejecute la consulta
+$res = $sel->get_result(); #aqui se va almacenado el resultado de la consulta
+$row = mysqli_num_rows($res); 
+?>
+
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content">
+          <span class="card-title">Clientes (<?php echo $row ?>)</span>
+          <table>
+            <thead>
+              <tr class="cabecera">
+                <th>Nombre</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Asesor</th>
+              </tr>
+            </thead>
+            <?php while ($f = $res->fetch_assoc()) { ?>
+              <tr>
+                <td><?php echo $f['nombre'] ?></td>
+                <td><?php echo $f['direccion'] ?></td>
+                <td><?php echo $f['tel'] ?></td>
+                <td><?php echo $f['correo'] ?></td>
+                <td><?php echo $f['nombre'] ?></td>
+                
+              </tr>
+            <?php }
+            $sel->close();
+            $con->close();
+            ?>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <?php include '../extend/scripts.php'; ?>
 
 </body>
