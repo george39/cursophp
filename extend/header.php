@@ -44,7 +44,7 @@ if (!isset($_SESSION['nick'])) { #pregunta si existe la variable desision
 	</style>
 	<title>Proyecto</title>
 </head>
-<body>
+<body class="grey lighten-3">
 
 <main>
 <!-- llamado al archivo menu -->

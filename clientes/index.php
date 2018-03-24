@@ -71,6 +71,9 @@ $row = mysqli_num_rows($res);
                 <th>Telefono</th>
                 <th>Correo</th>
                 <th>Asesor</th>
+                <th>Nuevo</th>
+                <th>Actualizar</th>
+                <th>Eliminar</th>
                 <!--5 actualizar datos de los clientes -->
                 <th></th>
                 <th></th>
@@ -83,6 +86,7 @@ $row = mysqli_num_rows($res);
                 <td><?php echo $f['correo'] ?></td>
                 <td><?php echo $f['asesor'] ?></td>
                 <!--5 -->
+                <td><a href="../propiedades/alta_propiedades.php?id=<?php echo $f['id'] ?>&nombre=<?php echo $f['nombre'] ?>" class="btn-floating green"><i class="material-icons">add</i></a>  </td>
                 <td><a href="editar_cliente.php?id=<?php echo $f['id'] ?>" class="btn-floating blue"><i class="material-icons">loop</i></a>  </td>
                 <!--6 -->
                 <td>

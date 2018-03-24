@@ -25,6 +25,14 @@
 
 	$('.button-collpase').sideNav();
 	$('select').material_select();  /* inicializa el select para que se vea */
+		/*8 calendario */
+	
+	$('.datepicker').pickadate({
+		selectMonths: true,
+		selectYears: 15
+	});
+
+	 
 	
 
 /* funcion para transformar todo en letras mayusculas */
@@ -32,6 +40,9 @@ function may(obj, id){
 	obj = obj.toUpperCase();
 	document.getElementById(id).value = obj;
 	}
+
+
+
 </script>
 
  
