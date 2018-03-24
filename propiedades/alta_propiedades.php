@@ -22,6 +22,23 @@ $nombre = $con->real_escape_string(htmlentities($_GET['nombre']));
         <h5 align="center"><b>DATOS GENERALES</b></h5>
         <form  action="ins_propiedad.php" method="post" autocomplete="off" >
           <!--AJAX AQUI -->
+          <!--9 consultar municipios -->
+        <div class="row">
+          <div class="col s6">
+            <select class="" name="estado" required="">
+            <option value="" disabled selected>Selecciona un estado</option>
+            <?php $sel_estado = $con->prepare("SELECT * FROM estados ");
+            $sel_estado->execute();
+            $res_estado = $sel_estado->get_result();
+            while ($f_estado = $res_estado->fetch_assoc()) {?>
+                <option value="<?php echo $f_estado['idestados'] ?>"><?php echo $f_estado['estado'] ?></option>
+                <?php }
+                $sel_estado->close();
+                ?>
+            </select>
+          </div>
+        </div>  
+
         <div class="row">
           <div class="col s6">                               <!--8 -->
               <input type="hidden" name="id_cliente" value="<?php echo $id ?>">                                         <!--8 -->
@@ -166,5 +183,7 @@ $nombre = $con->real_escape_string(htmlentities($_GET['nombre']));
 </div>
 
 <?php include '../extend/scripts.php'; ?>
+<!--9 para llamar el metodo ajax -->
+<script src="../js/estados.js"></script>
 </body>
 </html>
