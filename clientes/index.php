@@ -21,7 +21,7 @@
           </div>
           <div class="input-field">
             <input type="email" name="email"   id="email"   >
-            <label for="email">Correo</label>
+            <label for="email">Correo</label>            
           </div>
           <button type="submit" class="btn" >Guardar</button>
         </form>
@@ -71,6 +71,8 @@ $row = mysqli_num_rows($res);
                 <th>Telefono</th>
                 <th>Correo</th>
                 <th>Asesor</th>
+                <!--5 actualizar datos de los clientes -->
+                <th></th>
               </tr>
             </thead>
             <?php while ($f = $res->fetch_assoc()) { ?>
@@ -80,7 +82,8 @@ $row = mysqli_num_rows($res);
                 <td><?php echo $f['tel'] ?></td>
                 <td><?php echo $f['correo'] ?></td>
                 <td><?php echo $f['nombre'] ?></td>
-                
+                <!--5 -->
+                <td><a href="editar_cliente.php?id=<?php echo $f['id'] ?>" class="btn-floating blue"><i class="material-icons">loop</i></a>  </td>
               </tr>
             <?php }
             $sel->close();
