@@ -28,6 +28,7 @@
 		/*8 calendario */
 	
 	$('.datepicker').pickadate({
+		format: 'yyyy-m-d',
 		selectMonths: true,
 		selectYears: 15
 	});
