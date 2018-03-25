@@ -45,7 +45,12 @@ switch ($c) {
 
 	case 'cli':
 		$carpeta = '../clientes/';
-		break;			
+		break;
+
+	#12
+	case 'prop':
+		$carpeta = '../propiedades/';
+		break;				
 }
 
 switch ($p) {
