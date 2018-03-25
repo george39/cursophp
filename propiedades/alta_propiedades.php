@@ -5,6 +5,7 @@ $id = $con->real_escape_string(htmlentities($_GET['id']));
 $nombre = $con->real_escape_string(htmlentities($_GET['nombre']));
 
 ?>
+<meta charset="utf-8">
 <div class="row">
   <div class="col s12">
     <div class="card">
@@ -25,7 +26,7 @@ $nombre = $con->real_escape_string(htmlentities($_GET['nombre']));
           <!--9 consultar municipios -->
         <div class="row">
           <div class="col s6">
-            <select class="" name="estado" required="">
+            <select id="estado" name="estado" required="">
             <option value="" disabled selected>Selecciona un estado</option>
             <?php $sel_estado = $con->prepare("SELECT * FROM estados ");
             $sel_estado->execute();
@@ -37,8 +38,13 @@ $nombre = $con->real_escape_string(htmlentities($_GET['nombre']));
                 ?>
             </select>
           </div>
-        </div>  
-
+         
+        <div class="col s6">
+          <div class="res_estado">
+            
+          </div>
+        </div> 
+      </div>
         <div class="row">
           <div class="col s6">                               <!--8 -->
               <input type="hidden" name="id_cliente" value="<?php echo $id ?>">                                         <!--8 -->
