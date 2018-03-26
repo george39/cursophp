@@ -10,7 +10,7 @@
 			</div> 
 			<a href="../perfil/index.php" ><img src="../usuarios/<?php echo $_SESSION['foto'] ?>" class="circle" alt=""></a>
 			<!--aqui cambiamos los datos del perfil de usuario -->
-			<a href="../perfil/perfil.php" class="white-text"><?php echo $_SESSION['nombre'] ?></a> <br> <!--aqui nos traemos los datos de la bd del usuario -->
+			<a href="../perfil/perfil.php" class="white-text"><?php echo $_SESSION['nombre'] ?></a>  <!--aqui nos traemos los datos de la bd del usuario -->
 			<a href="" class="white-text"><?php echo $_SESSION['correo'] ?></a>
 		</div>
 	</li>

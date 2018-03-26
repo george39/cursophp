@@ -4,7 +4,7 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 
-<script src="../js/materialize.min.js"></script> 
+<script src="../materialize/js/materialize.min.js"></script> 
 <script src="../cdn/sweetalert2.js"></script>
 
 <!-- para inicializar todo con materialize -->
