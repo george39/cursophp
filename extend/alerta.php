@@ -69,11 +69,24 @@ switch ($p) {
 	#case para editar datos del perfil
 	case 'perfil':
 		$pagina = 'perfil.php';
-		break;				
+		break;
+
+	#16 para cambiar la foto de las propiedades 
+	case 'img':
+		$pagina = 'imagenes.php';
+		break;					
+}
+#16 
+if (isset($_GET['id'])) {
+	$id = htmlentities($_GET['id']);
+	$dir = $carpeta.$pagina.'?id='.$id;
+}else {
+	/*variAble que se forma con la carpeta y la pagina y se direcciona en la funcion de la alerta*/
+	$dir = $carpeta.$pagina;
 }
 
-/*variAble que se forma con la carpeta y la pagina y se direcciona en la funcion de la alerta*/
-$dir = $carpeta.$pagina;
+
+
 
 if ($t == "error") {
 	$titulo = "Oppss..";
