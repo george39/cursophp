@@ -1,10 +1,12 @@
-<!--16  -->
-<?php include '../conexion/conexion.php';
+<?php 
+include '../conexion/conexion.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$id = htmlentities($_POST['id']);
-	$foto = htmlentities($_POST['anterior']);
-	$ruta = $_FILES['foto']['tmp_name'];
-	$imagen = $_FILES['foto']['name'];
+	$cont = 0;
+foreach ($_FILES['ruta']['tmp_name'] as $key => $value) {
+	$ruta = $_FILES['ruta']['tmp_name'][$key];
+	$imagen = $_FILES['ruta']['name'][$key];
+
 
 	$ancho = 500;
 	$alto = 400;
@@ -17,38 +19,48 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$imagenvieja = imagecreatefromjpeg($ruta);
 		$nueva = imagecreatetruecolor($ancho, $alto);
 		imagecopyresampled($nueva, $imagenvieja, 0,0,0,0, $ancho, $alto, $width, $heigth);
+		$cont++;
 		$rand = rand(000,999);
-		$copia = "casas/principal-".$rand.$id.'.jpg';
+		$renombrar = $id.$rand.$cont;
+		$copia = "casas/".$renombrar.".jpg";
 		imagejpeg($nueva,$copia); 
 	}elseif ($info['extension'] == 'png' || $info['extension'] == 'PNG' ) {
 		$imagenvieja = imagecreatefrompng($ruta);
 		$nueva = imagecreatetruecolor($ancho, $alto);
 		imagecopyresampled($nueva, $imagenvieja, 0,0,0,0, $ancho, $alto, $width, $heigth);
+		
+		$cont++;
 		$rand = rand(000,999);
-		$copia = "casas/principal-".$rand.$id.'.png';
+		$renombrar = $id.$rand.$cont;
+		$copia = "casas/".$renombrar.".png";
 		imagepng($nueva,$copia); 
 	}else {
 		header('location:../extend/alerta.php?msj=Solo se acepta formatos jpg y png&c=prop&p=img&t=error&id='.$id.'');
 		exit;
 	}
 
-	$up = $con->prepare("UPDATE inventario SET foto_principal=? WHERE propiedad=?");
-	$up->bind_param('ss', $copia, $id);
+	$ins = $con->prepare("INSERT INTO imagenes VALUES(?,?,?)");
+	$ins->bind_param("iss",$id_img, $id, $copia);
+	$id_img = '';
+	$ins->execute();
 
-	if ($up->execute()) {
-		if ($foto != 'casas/foto_principal.png') {
-			unlink($foto);
-		}
-		header('location:../extend/alerta.php?msj=foto principal actualizada&c=prop&p=img&t=success&id='.$id.'');
-	}else {
-		header('location:../extend/alerta.php?msj=la foto principal no fue actualizada&c=prop&p=img&t=error&id='.$id.'');
-	}
 
-	$up->close();
-	$con->close();
+
+
+
+}#ternina el foreach
+if ($ins) {
+	header('location:../extend/alerta.php?msj=Imagenes guardadas&c=prop&p=img&t=success&id='.$id.'');
 }else {
-	$id = htmlentities($_POST['id']);
-	header('location:../extend/alerta.php?msj=Utiliza el formulario&c=prop&p=img&t=error&id='.$id.'');
+	header('location:../extend/alerta.php?msj=Imagenes no guaradadas&c=prop&p=img&t=error&id='.$id.'');
 }
 
-?>
+
+	$ins->close();
+	$con->close();
+	}else {
+		$id = htmlentities($_POST['id']);
+		header('location:../extend/alerta.php?msj=Utiliza el formulario&c=prop&p=img&t=error&id='.$id.'');
+	}
+
+	?>
