@@ -10,12 +10,12 @@ if ($f =$res->fetch_assoc()) {
  ?>
 
  <!DOCTYPE html>
- <html lang="en">
+ <html lang="es">
  <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <link rel="stylesheet" href="../css/materialize.min.css">
+   <link rel="stylesheet" href="css/materialize.min.css"> <!--../css/materialize.min.css -->
    <title>modal</title>
  </head>
  <body>
@@ -87,7 +87,7 @@ if ($f =$res->fetch_assoc()) {
      <td>Tipo de inmueble</td>
      <td><?php echo $f['tipo_inmueble']?></td>
      <td>Fecha de registro</td>
-     <td><?php echo date('d-m-y', strtotime($f['fecha_registro'])) ?></td>
+     <td><?php echo date('d-m-y', strtotime($f['fecha_registro'])) ?></td><!--cambiar el formato de la fecha -->
    </tr>
    <tr>
      <td>Comentario web</td>

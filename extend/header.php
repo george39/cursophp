@@ -16,11 +16,12 @@ if (!isset($_SESSION['nick'])) { #pregunta si existe la variable desision
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet"  href="../cdn/sweetalert2.css">
 	<script
+	  
 	  src="https://code.jquery.com/jquery-3.3.1.min.js"
 	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	  crossorigin="anonymous"></script>
 	<script src="../cdn/sweetalert2.js"></script>
-	<script src="../materialize/js/materialize.min.js"></script>
+	<script src="../materialize/js/materialize.min.js"></script> <!--../materialize/js/materialize.min.js -->
 
 	<!-- para generar espacio a la derecha del menu para el contenido -->
 	<style media="screen">

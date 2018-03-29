@@ -1,10 +1,11 @@
 </main> 
 <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  	
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 
-<script src="../materialize/js/materialize.min.js"></script> 
+<script src="../materialize/js/materialize.min.js"></script> <!--../materialize/js/materialize.min.js -->
 <script src="../cdn/sweetalert2.js"></script>
 
 <!-- para inicializar todo con materialize -->

@@ -57,7 +57,8 @@ $operacion = $con->real_escape_string(htmlentities($_GET['ope']));
               <td><?php echo $f['asesor'] ?></td>
               <td><?php echo $f['tipo_inmueble'] ?></td>
               <td><?php echo $f['operacion'] ?></td>
-              <td>OPCIONES</td>
+              <!--15 -->
+              <td><a href="imagenes.php?id=<?php echo $f['propiedad'] ?>" class="btn-floating pink" ><i class="material-icons">image</i> </a> </td>
             </tr>
           <?php }
           $sel->close();

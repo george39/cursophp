@@ -33,6 +33,7 @@
 <ul id="dropdown1" class="dropdown-content">
   <!--<li><a href="../propiedades/index.php">one</a></li> -->
   <li><a href="../propiedades/index.php?ope=VENTA">Venta</a></li>
+  <li><a href="../propiedades/index.php?ope=VENTA">marica</a></li>
   
 </ul>
 

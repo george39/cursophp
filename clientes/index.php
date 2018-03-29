@@ -90,7 +90,7 @@ $row = mysqli_num_rows($res);
                 <td><a href="editar_cliente.php?id=<?php echo $f['id'] ?>" class="btn-floating blue"><i class="material-icons">loop</i></a>  </td>
                 <!--6 -->
                 <td>
-                <a href="#" class="btn-floating red" onclick="swal({title: 'Esta seguro que desea minar el cliente?', text: 'Al eliminarlo no podra recuperarlo', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#d33', confirmButtonText: 'Si, eliminarlo!' }).then(function () {
+                <a href="#" class="btn-floating red" onclick="swal({title: 'Esta seguro que desea eliminar el cliente?', text: 'Al eliminarlo no podra recuperarlo', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#d33', confirmButtonText: 'Si, eliminarlo!' }).then(function () {
                     location.href='eliminar_cliente.php?id=<?php echo $f['id'] ?>'; })"><i class="material-icons">clear</i></a>
               </td>
               </tr>

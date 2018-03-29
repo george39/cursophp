@@ -11,7 +11,7 @@ include '../conexion/conexion.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet"  href="../cdn/sweetalert2.css">
-	<script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
+	<script type="text/javascript" src="../materialize/js/materialize.min.js"></script><!--../materialize/js/materialize.min.js -->
 	<title>Proyecto</title>
 </head>
 <body>
@@ -85,7 +85,8 @@ if ($t == "error") {
 
 <!-- codigo de la alerta traido de la pagina de sweetalert2 aqui nos traemos las variables de la alerta con php-->
 <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  type="text/javascript"
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
   <script src="../cdn/sweetalert2.js"></script>

@@ -1,4 +1,4 @@
-<!--En este archivo se actualizan los datos de perfil que puta mierda -->
+<!--En este archivo se actualizan los datos de perfil-->
 <?php include '../extend/header.php'; ?> 
 
 <div class="row">
