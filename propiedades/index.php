@@ -4,10 +4,10 @@
 <?php include '../extend/header.php';
 if (isset($_GET['ope'])) {
    $operacion = $con->real_escape_string(htmlentities($_GET['ope']));
-   $sel = $con->prepare("SELECT propiedad, consecutivo,nombre_cliente,calle_num,fraccionamiento,estado,municipio,precio,forma_pago,asesor,tipo_inmueble,operacion FROM inventario WHERE estatus = 'ACTIVO' AND operacion = ?");
+   $sel = $con->prepare("SELECT propiedad, consecutivo,nombre_cliente,calle_num,fraccionamiento,estado,municipio,precio,forma_pago,asesor,tipo_inmueble,operacion,mapa FROM inventario WHERE estatus = 'ACTIVO' AND operacion = ?");
    $sel->bind_param('s', $operacion);
  }else {
-  $sel = $con->prepare("SELECT propiedad, consecutivo,nombre_cliente,calle_num,fraccionamiento,estado,municipio,precio,forma_pago,asesor,tipo_inmueble,operacion FROM inventario WHERE estatus = 'ACTIVO' ");
+  $sel = $con->prepare("SELECT propiedad, consecutivo,nombre_cliente,calle_num,fraccionamiento,estado,municipio,precio,forma_pago,asesor,tipo_inmueble,operacion, mapa FROM inventario WHERE estatus = 'ACTIVO' ");
          
  } 
 
@@ -67,6 +67,8 @@ if (isset($_GET['ope'])) {
               <td><?php echo $f['operacion'] ?></td>
               <!--15 -->
               <td><a href="imagenes.php?id=<?php echo $f['propiedad'] ?>" class="btn-floating pink" ><i class="material-icons">image</i> </a> </td>
+              <!--22 boton para mapa -->
+              <td><a href="mapa.php?mapa=<?php echo $f['mapa'] ?>" class="btn-floating orange" ><i class="material-icons">room</i> </a> </td>
             </tr>
           <?php }
           $sel->close();
