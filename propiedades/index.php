@@ -1,7 +1,16 @@
 <!--12 -->
 <!--13 -->
-<?php include '../extend/header.php'; 
-$operacion = $con->real_escape_string(htmlentities($_GET['ope']));
+<!--21 correccion -->
+<?php include '../extend/header.php';
+if (isset($_GET['ope'])) {
+   $operacion = $con->real_escape_string(htmlentities($_GET['ope']));
+   $sel = $con->prepare("SELECT propiedad, consecutivo,nombre_cliente,calle_num,fraccionamiento,estado,municipio,precio,forma_pago,asesor,tipo_inmueble,operacion FROM inventario WHERE estatus = 'ACTIVO' AND operacion = ?");
+   $sel->bind_param('s', $operacion);
+ }else {
+  $sel = $con->prepare("SELECT propiedad, consecutivo,nombre_cliente,calle_num,fraccionamiento,estado,municipio,precio,forma_pago,asesor,tipo_inmueble,operacion FROM inventario WHERE estatus = 'ACTIVO' ");
+         
+ } 
+
 ?>
 <br>
 <!--buscador -->
@@ -41,8 +50,7 @@ $operacion = $con->real_escape_string(htmlentities($_GET['ope']));
            
           </thead>
           <?php
-          $sel = $con->prepare("SELECT propiedad, consecutivo,nombre_cliente,calle_num,fraccionamiento,estado,municipio,precio,forma_pago,asesor,tipo_inmueble,operacion FROM inventario WHERE estatus = 'ACTIVO' AND operacion = ?");
-          $sel->bind_param('s', $operacion);
+          
           $sel->execute();
           $res = $sel->get_result();
           while ($f =$res->fetch_assoc()) {?>
