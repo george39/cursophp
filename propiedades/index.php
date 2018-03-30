@@ -67,8 +67,8 @@ if (isset($_GET['ope'])) {
               <td><?php echo $f['operacion'] ?></td>
               <!--15 -->
               <td><a href="imagenes.php?id=<?php echo $f['propiedad'] ?>" class="btn-floating pink" ><i class="material-icons">image</i> </a> </td>
-              <!--22 boton para mapa -->
-              <td><a href="mapa.php?mapa=<?php echo $f['mapa'] ?>" class="btn-floating orange" ><i class="material-icons">room</i> </a> </td>
+              <!--22 boton para mapa  targe="_blank" es para abrir en una ventana nueva--> 
+              <td><a href="mapa.php?mapa=<?php echo $f['mapa'] ?>" target="_blank" class="btn-floating orange" ><i class="material-icons">room</i> </a> </td>
             </tr>
           <?php }
           $sel->close();
