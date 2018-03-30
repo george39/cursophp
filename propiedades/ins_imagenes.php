@@ -1,3 +1,4 @@
+<!--18 -->
 <?php 
 include '../conexion/conexion.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -8,8 +9,8 @@ foreach ($_FILES['ruta']['tmp_name'] as $key => $value) {
 	$imagen = $_FILES['ruta']['name'][$key];
 
 
-	$ancho = 500;
-	$alto = 400;
+	$ancho = 200;
+	$alto = 100;
 	$info = pathinfo($imagen);
 	$tamano = getimagesize($ruta);
 	$width = $tamano[0];
