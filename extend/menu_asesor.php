@@ -28,6 +28,10 @@
 
 <ul id="dropdown1" class="dropdown-content">
   <!--<li><a href="../propiedades/index.php">one</a></li> -->
+  <li><a href="../propiedades/index.php">GENERAL</a></li>
   <li><a href="../propiedades/index.php?ope=VENTA">Venta</a></li>
-  
+  <li><a href="../propiedades/index.php?ope=RENTA">RENTA</a></li>
+  <li><a href="../propiedades/index.php?ope=TRASPASO">TRASPASO</a></li>
+  <li><a href="../propiedades/index.php?ope=OCUPADO">OCUPADO</a></li>
+  <li><a href="../propiedades/index.php">CANCELADOS</a></li>  
 </ul>
