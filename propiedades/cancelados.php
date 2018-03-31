@@ -2,7 +2,7 @@
 <!--26 cancelar y recuperar propiedad -->
 <?php include '../extend/header.php';
    
-   $sel = $con->prepare("SELECT propiedad, consecutivo,nombre_cliente,calle_num,fraccionamiento,estado,municipio,precio,forma_pago,asesor,tipo_inmueble,operacion,mapa FROM inventario WHERE estatus = 'CANCELADO' "); 
+   $sel = $con->prepare("SELECT propiedad, consecutivo,nombre_cliente,calle_num,fraccionamiento,estado,municipio,precio,forma_pago,asesor,tipo_inmueble,operacion,mapa,foto_principal FROM inventario WHERE estatus = 'CANCELADO' "); 
 
 ?>
 <br>
@@ -62,8 +62,8 @@
               <!--26 recuperar propiedad -->
               <td><a href="cancelar_propiedad.php?id=<?php echo $f['propiedad'] ?>&accion=ACTIVO" class="btn-floating blue" ><i class="material-icons">loop</i> </a> </td>
               <td>
-                <a href="#" class="btn-floating red" onclick="swal({title: 'Esta seguro que desea cancelar la propiedad?', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#d33', confirmButtonText: 'Si, cancelarla!' }).then(function () {
-                    location.href='cancelar_propiedad.php?id=<?php echo $f['propiedad'] ?>&accion=CANCELADO'; })"><i class="material-icons">delete</i></a>
+                <a href="#" class="btn-floating red" onclick="swal({title: 'Esta seguro que desea eliminar la propiedad?', text:'Al eliminarla no podra recuperarla', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#d33', confirmButtonText: 'Si, eliminarla!' }).then(function () {
+                    location.href='eliminar_propiedad.php?id=<?php echo $f['propiedad'] ?>&foto=<?php echo $f['foto_principal']?>'; })"><i class="material-icons">delete_forever</i></a>
               </td>
             </tr>
           <?php }

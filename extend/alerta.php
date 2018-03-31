@@ -74,7 +74,12 @@ switch ($p) {
 	#16 para cambiar la foto de las propiedades 
 	case 'img':
 		$pagina = 'imagenes.php';
-		break;					
+		break;
+
+	#27 eliminar propiedad
+	case 'can':
+		$pagina = 'cancelados.php';
+		break;						
 }
 #16 
 if (isset($_GET['id'])) {
