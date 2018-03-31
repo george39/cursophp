@@ -46,7 +46,7 @@ if (isset($_GET['ope'])) {
               <th>Asesor</th>
               <th>Tipo</th>
               <th>Operacion</th>
-              <th>Opciones</th>
+              <th colspan="3">Opciones</th>
            
           </thead>
           <?php
@@ -55,7 +55,7 @@ if (isset($_GET['ope'])) {
           $res = $sel->get_result();
           while ($f =$res->fetch_assoc()) {?>
             <tr>
-                <!--14 -->
+                <!--14 vista modal-->
               <td class="borrar"> <button  data-target="modal1" onclick="enviar(this.value)"  value="<?php echo $f['propiedad'] ?>"  class="btn modal-trigger"><i class="material-icons">visibility</i></button></td>
               <td><?php echo $f['consecutivo'] ?></td>
               <td><?php echo $f['nombre_cliente'] ?></td>
@@ -65,10 +65,12 @@ if (isset($_GET['ope'])) {
               <td><?php echo $f['asesor'] ?></td>
               <td><?php echo $f['tipo_inmueble'] ?></td>
               <td><?php echo $f['operacion'] ?></td>
-              <!--15 -->
+              <!--15 boton para ver y cargar imagenes-->
               <td><a href="imagenes.php?id=<?php echo $f['propiedad'] ?>" class="btn-floating pink" ><i class="material-icons">image</i> </a> </td>
               <!--22 boton para mapa  targe="_blank" es para abrir en una ventana nueva--> 
               <td><a href="mapa.php?mapa=<?php echo $f['mapa'] ?>" target="_blank" class="btn-floating orange" ><i class="material-icons">room</i> </a> </td>
+
+              <td><a href="pdf.php?id=<?php echo $f['propiedad'] ?>"  class="btn-floating green" ><i class="material-icons">picture_as_pdf</i> </a> </td>
             </tr>
           <?php }
           $sel->close();
