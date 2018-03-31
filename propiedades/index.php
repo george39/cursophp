@@ -71,6 +71,8 @@ if (isset($_GET['ope'])) {
               <td><a href="mapa.php?mapa=<?php echo $f['mapa'] ?>" target="_blank" class="btn-floating orange" ><i class="material-icons">room</i> </a> </td>
 
               <td><a href="pdf.php?id=<?php echo $f['propiedad'] ?>"  class="btn-floating green" ><i class="material-icons">picture_as_pdf</i> </a> </td>
+              <!--25 editar propiedad -->
+              <td><a href="editar_propiedad.php?id=<?php echo $f['propiedad'] ?>" class="btn-floating blue" ><i class="material-icons">loop</i> </a> </td>
             </tr>
           <?php }
           $sel->close();
