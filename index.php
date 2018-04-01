@@ -10,9 +10,9 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	
 	<title>Sitio web</title>
 </head>
-<body>
+<body class="blue-grey lighten-5">
 <nav class="red">
-	
+	<a href="#" class="brand-logo center">Logo</a>
 </nav>
 
 <div class="slider">
@@ -33,6 +33,67 @@
     $sel->close();
     ?>    
     </ul>
+  </div>
+
+  <div class="row">
+  	<div class="col s12 m6 l3">
+  		<div class="card">
+            <div class="card-image">
+              <img src="admin/propiedades/casas/foto_principal.png">
+              <span class="card-title">Precio</span>
+            </div>
+            <div class="card-content">
+              <p>Direccion</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Ver mas..</a>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6 l3">
+  		<div class="card">
+            <div class="card-image">
+              <img src="admin/propiedades/casas/foto_principal.png">
+              <span class="card-title">Precio</span>
+            </div>
+            <div class="card-content">
+              <p>Direccion</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Ver mas..</a>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6 l3">
+  		<div class="card">
+            <div class="card-image">
+              <img src="admin/propiedades/casas/foto_principal.png">
+              <span class="card-title">Precio</span>
+            </div>
+            <div class="card-content">
+              <p>Direccion</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Ver mas..</a>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6 l3">
+  		<div class="card">
+            <div class="card-image">
+              <img src="admin/propiedades/casas/foto_principal.png">
+              <span class="card-title">Precio</span>
+            </div>
+            <div class="card-content">
+              <p>Direccion</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Ver mas..</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  	</div>
   </div>
 
 	<script
