@@ -20,8 +20,8 @@ foreach ($_FILES['ruta']['tmp_name'] as $key => $value) {
 		$nueva = imagecreatetruecolor($ancho, $alto);
 		imagecopyresampled($nueva, $imagenvieja, 0,0,0,0, $ancho, $alto, $width, $heigth);
 		$cont++;
-		$rand = rand(000,999);
-		$renombrar = $rand.$cont;
+		$ran = rand(000,999);
+		$renombrar = $ran.$cont;
 		$copia = "slider/".$renombrar.".jpg";
 		imagejpeg($nueva,$copia); 
 	}elseif ($info['extension'] == 'png' || $info['extension'] == 'PNG' ) {
@@ -30,8 +30,8 @@ foreach ($_FILES['ruta']['tmp_name'] as $key => $value) {
 		imagecopyresampled($nueva, $imagenvieja, 0,0,0,0, $ancho, $alto, $width, $heigth);
 		
 		$cont++;
-		$rand = rand(000,999);
-		$renombrar = $rand.$cont;
+		$ran = rand(000,999);
+		$renombrar = $ran.$cont;
 		$copia = "slider/".$renombrar.".png";
 		imagepng($nueva,$copia); 
 	}else {

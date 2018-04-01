@@ -58,7 +58,7 @@ include '../extend/header.php';
         while ($f_img = $res_img->fetch_assoc()) {?>
         <!--20 -->          
            <a href="#"  onclick="swal({title: 'Esta seguro que desea eliminar la imagen?', text: 'Al eliminarla no podra recuperarlo', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#d33', confirmButtonText: 'Si, eliminarla!' }).then(function () {
-                    location.href='eliminar_slider.php?id=<?php echo $f_img['id'] ?>&ruta=<?php echo $f_img['ruta'] ?>'; })"><img src="<?php echo $f_img['ruta'] ?>" alt="" width="300" heigth="400" ></a>
+                    location.href='eliminar_slider.php?id=<?php echo $f_img['id'] ?>&ruta=<?php echo $f_img['ruta'] ?>'; })"><img src="<?php echo $f_img['ruta'] ?>" alt="" width="980" heigth="250" ></a>
           <?php 
         }
         $sel_img->close();
