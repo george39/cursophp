@@ -79,7 +79,11 @@ switch ($p) {
 	#27 eliminar propiedad
 	case 'can':
 		$pagina = 'cancelados.php';
-		break;						
+		break;
+	#sec 10.2 pagina slider	
+	case 'sl':
+		$pagina = 'slider.php';
+		break;							
 }
 #16 
 if (isset($_GET['id'])) {

@@ -24,6 +24,9 @@
 	<li><div class="divider"></div></li>
 	<li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">work</i>Propiedades<i class="material-icons right">arrow_drop_down</i></a></li>
 	 <li><div class="divider"></div></li>
+	 <!--sec10.1 administrar slider -->
+	 <li><a href="../inicio/slider.php"><i class="material-icons">web</i>SLIDER</a></li>	
+	<li><div class="divider"></div></li>
 	 
 	<li><a href="../login/salir.php"><i class="material-icons">power_settings_new</i>Salir</a></li>	
 	<li><div class="divider"></div></li>

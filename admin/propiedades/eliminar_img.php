@@ -12,7 +12,7 @@ if ($del->execute()) {
 	unlink($ruta);
 	header('location:../extend/alerta.php?msj=Imagen borradas&c=prop&p=img&t=success&id='.$id_propiedad.'');
 }else {
-	header('location:../extend/alerta.php?msj=Imagen no  borradas&c=prop&p=img&t=success&id='.$id_propiedad.'');
+	header('location:../extend/alerta.php?msj=Imagen no  borradas&c=prop&p=img&t=error&id='.$id_propiedad.'');
 }
 
 $del->close();
