@@ -33,11 +33,17 @@ if (isset($_GET['ope'])) {
   <div class="col s12">
     <div class="card">
       <div class="card-content">
-        <span class="card-title">Propiedades</span>
-        <table>
+        <!--28 exportar a excel -->
+        <form action="excel.php" method="post" target="_blank" id="exportar">
+        <span class="card-title">Propiedades
+          <button class="btn-floating green botonExcel"><i class="material-icons">grid_on</i></button>
+          <input type="hidden" name="datos" id="datos"> 
+        </span>          
+        </form>        
+        <table class="excel" border="1">
           <thead>
             
-              <th>Vista</th>
+              <th class="borrar">Vista</th>
               <th>Num</th>
               <th>Cliente</th>
               <th>Propiedad</th>
@@ -46,7 +52,7 @@ if (isset($_GET['ope'])) {
               <th>Asesor</th>
               <th>Tipo</th>
               <th>Operacion</th>
-              <th colspan="5">Opciones</th>
+              <th colspan="5" class="borrar">Opciones</th>
            
           </thead>
           <?php
@@ -66,14 +72,14 @@ if (isset($_GET['ope'])) {
               <td><?php echo $f['tipo_inmueble'] ?></td>
               <td><?php echo $f['operacion'] ?></td>
               <!--15 boton para ver y cargar imagenes-->
-              <td><a href="imagenes.php?id=<?php echo $f['propiedad'] ?>" class="btn-floating pink" ><i class="material-icons">image</i> </a> </td>
+              <td class="borrar"><a href="imagenes.php?id=<?php echo $f['propiedad'] ?>" class="btn-floating pink" ><i class="material-icons">image</i> </a> </td>
               <!--22 boton para mapa  targe="_blank" es para abrir en una ventana nueva--> 
-              <td><a href="mapa.php?mapa=<?php echo $f['mapa'] ?>" target="_blank" class="btn-floating orange" ><i class="material-icons">room</i> </a> </td>
+              <td class="borrar"><a href="mapa.php?mapa=<?php echo $f['mapa'] ?>" target="_blank" class="btn-floating orange" ><i class="material-icons">room</i> </a> </td>
 
-              <td><a href="pdf.php?id=<?php echo $f['propiedad'] ?>"  class="btn-floating green" ><i class="material-icons">picture_as_pdf</i> </a> </td>
+              <td class="borrar"><a href="pdf.php?id=<?php echo $f['propiedad'] ?>"  class="btn-floating green" ><i class="material-icons">picture_as_pdf</i> </a> </td>
               <!--25 editar propiedad -->
-              <td><a href="editar_propiedad.php?id=<?php echo $f['propiedad'] ?>" class="btn-floating blue" ><i class="material-icons">loop</i> </a> </td>
-              <td>
+              <td class="borrar"><a href="editar_propiedad.php?id=<?php echo $f['propiedad'] ?>" class="btn-floating blue" ><i class="material-icons">loop</i> </a> </td>
+              <td class="borrar">
                 <a href="#" class="btn-floating red" onclick="swal({title: 'Esta seguro que desea cancelar la propiedad?', type: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#d33', confirmButtonText: 'Si, cancelarla!' }).then(function () {
                     location.href='cancelar_propiedad.php?id=<?php echo $f['propiedad'] ?>&accion=CANCELADO'; })"><i class="material-icons">delete</i></a>
               </td>
@@ -121,6 +127,16 @@ if (isset($_GET['ope'])) {
 				$('.res_modal').html(respuesta);
 			});
 	}
+</script>
+<!--28 para quitar los botones al exportar a excel -->
+<script>
+  $('.botonExcel').click(function(){
+    $('.borrar').remove();
+    $('#datos').val($("<div>").append($('.excel').eq(0).clone()).html());
+    $('#exportar').submit();
+    //para volver a aparecer los botones
+    setInterval(function(){ location.reload();}, 3000);
+  });
 </script>
 
 </body>
