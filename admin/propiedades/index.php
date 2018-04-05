@@ -63,7 +63,7 @@ if (isset($_GET['ope'])) {
           while ($f =$res->fetch_assoc()) {?>
             <tr>
                 <!--14 vista modal-->
-              <td class="borrar"> <button  data-target="modal1" onclick="enviar(this.value)"  value="<?php echo $f['propiedad'] ?>"  class="btn modal-trigger"><i class="material-icons">visibility</i></button></td>
+              <td class="borrar"> <button id="mod" data-target="modal1" onclick="enviar(this.value)"  value="<?php echo $f['propiedad'] ?>"  class="btn modal-trigger"><i class="material-icons">visibility</i></button></td>
               <!--10.5 modulo para marcar los inmuebles -->
               <td>
                 <?php if ($f['marcado'] == ''): ?>

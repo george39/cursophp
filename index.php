@@ -1,5 +1,5 @@
 <!--seccion 10 1 inicio de sitio web y slider -->
-<?php include 'admin/conexion/conexion_web.php'; ?>
+<?php include 'admin/conexion/conexion_web.php';?> 
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,65 +36,31 @@
   </div>
 
   <div class="row">
+  <?php 
+  $sel_marc = $con->prepare("SELECT foto_principal,precio,estado,municipio, fraccionamiento,propiedad FROM inventario WHERE marcado='SI' ");
+  $sel_marc->execute();
+  $res_marc = $sel_marc->get_result();
+  while ($f_marc = $res_marc->fetch_assoc()) { ?>
   	<div class="col s12 m6 l3">
   		<div class="card">
             <div class="card-image">
-              <img src="admin/propiedades/casas/foto_principal.png">
-              <span class="card-title">Precio</span>
+              <img src="admin/propiedades/<?php echo $f_marc['foto_principal'] ?>">
+              <span class="card-title"><?php echo '$'. number_format($f_marc['precio'], 2); ?></span>
             </div>
             <div class="card-content">
-              <p>Direccion</p>
+              <p><?php echo $f_marc['fraccionamiento'].' '.$f_marc['estado'].' '.$f_marc['municipio']; ?></p>
             </div>
             <div class="card-action">
-              <a href="#">Ver mas..</a>
+              <a href="ver_mas.php?id=<?php echo $f_marc['propiedad'] ?>">Ver mas..</a>
             </div>
           </div>
         </div>
-        <div class="col s12 m6 l3">
-  		<div class="card">
-            <div class="card-image">
-              <img src="admin/propiedades/casas/foto_principal.png">
-              <span class="card-title">Precio</span>
-            </div>
-            <div class="card-content">
-              <p>Direccion</p>
-            </div>
-            <div class="card-action">
-              <a href="#">Ver mas..</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m6 l3">
-  		<div class="card">
-            <div class="card-image">
-              <img src="admin/propiedades/casas/foto_principal.png">
-              <span class="card-title">Precio</span>
-            </div>
-            <div class="card-content">
-              <p>Direccion</p>
-            </div>
-            <div class="card-action">
-              <a href="#">Ver mas..</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m6 l3">
-  		<div class="card">
-            <div class="card-image">
-              <img src="admin/propiedades/casas/foto_principal.png">
-              <span class="card-title">Precio</span>
-            </div>
-            <div class="card-content">
-              <p>Direccion</p>
-            </div>
-            <div class="card-action">
-              <a href="#">Ver mas..</a>
-            </div>
-          </div>
-        </div>
-      </div>
-  	</div>
-  </div>
+        <?php }
+        $sel_marc->close();
+        $con->close();
+        ?>
+  		</div>
+ 
 
 	<script
 	  
