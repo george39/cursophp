@@ -56,13 +56,81 @@
           </div>
         </div>
         <?php }
-        $sel_marc->close();
-        $con->close();
+        $sel_marc->close();        
         ?>
   		</div>
+<!--10.7 buscador de inmuebles -->
  
+ <div class="row">
+ 	<div class="col s12">
+ 		<div class="card">
+ 			<div class="card-content">
+ 				<span class="card-title">Busqueda de inmuebles</span>
+ 				<form action="buscar.php" method="">
+ 					<div class="row">
+          <div class="col s6">
+            <select id="estado" name="estado" required="">
+            <option value="" disabled selected>Selecciona un estado</option>
+            <?php $sel_estado = $con->prepare("SELECT * FROM estados ");
+            $sel_estado->execute();
+            $res_estado = $sel_estado->get_result();
+            while ($f_estado = $res_estado->fetch_assoc()) {?>
+                <option value="<?php echo $f_estado['idestados'] ?>"><?php echo $f_estado['estado'] ?></option>
+                <?php }
+                $sel_estado->close();
+                ?>
+            </select>
+          </div>
+         
+        <div class="col s6">
+          <div class="res_estado"></div>
+        </div> 
+      </div>
+      <div class="row">
+      	<div class="col s6">
+      		<select name="operacion" required  >
+              <option value="" disabled selected  >ELIGE LA OPERACION</option>
+              <option value="VENTA">VENTA</option>
+              <option value="RENTA">RENTA</option>
+              <option value="TRASPASO">TRASPASO</option>
+              <option value="OCUPADO">OCUPADO</option>
+            </select>
+      	</div>
+      	<div class="col s6">
+      		<select name="tipo_inmueble" required >
+              <option value="" disabled selected  >ELIGE EL TIPO DE INMUEBLE</option>
+              <option value="CASA">CASA</option>
+              <option value="TERRENO">TERRENO</option>
+              <option value="LOCAL">LOCAL</option>
+              <option value="DEPARTAMENTO">DEPARTAMENTO</option>
+            </select>
+      	</div>
+      </div>
 
-	<script
+      <div class="row">
+      	<div class="col s6">
+      		<div class="input-field">
+      		<input type="number" name="rango1" title="" id="rango1" required>
+      		<label for="rango1">Precio minimo</label>
+      	</div>
+      </div>      
+      	<div class="col s6">
+      		<div class="input-field">
+      		<input type="number" name="rango2" title="" id="rango2" required>
+      		<label for="rango2">Precio maximo</label>
+      	</div>
+      </div>
+    </div> 
+    <button type="button" class="btn">Buscar inmueble</button> 
+ 				</form>
+ 			</div>
+ 		</div>
+ 	</div>
+ </div>
+ 
+ 
+ 
+ 	<script
 	  
 	  src="https://code.jquery.com/jquery-3.3.1.min.js"
 	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -71,6 +139,21 @@
 	  <!--para inicializar el slider -->
 	  <script>
 	  	 $('.slider').slider();
+	  	 //para el buscardor
+	  	 $('select').material_select();
+	  	 /*10 departamentos y municipios */
+$('#estado').change(function(){ 
+			$.post('admin/propiedades/ajax_muni.php',{
+				estado:$('#estado').val(),
+
+				beforeSend: function(){
+					$('.res_estado').html("Espere un momento por favor");
+				}
+
+			}, function(respuesta){
+				$('.res_estado').html(respuesta);
+			});
+	});
 	  </script>
 </body>
 </html>
