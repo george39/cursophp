@@ -66,7 +66,7 @@
  		<div class="card">
  			<div class="card-content">
  				<span class="card-title">Busqueda de inmuebles</span>
- 				<form action="buscar.php" method="">
+ 				<form action="buscar.php" method="post">
  					<div class="row">
           <div class="col s6">
             <select id="estado" name="estado" required="">
@@ -121,7 +121,7 @@
       	</div>
       </div>
     </div> 
-    <button type="button" class="btn">Buscar inmueble</button> 
+    <button type="submit" class="btn">Buscar inmueble</button> 
  				</form>
  			</div>
  		</div>
