@@ -55,6 +55,8 @@
             </div>
           </div>
         </div>
+
+        
         <?php }
         $sel_marc->close();        
         ?>
@@ -142,7 +144,7 @@
 	  	 //para el buscardor
 	  	 $('select').material_select();
 	  	 /*10 departamentos y municipios */
-$('#estado').change(function(){ 
+		$('#estado').change(function(){ 
 			$.post('admin/propiedades/ajax_muni.php',{
 				estado:$('#estado').val(),
 
