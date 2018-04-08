@@ -116,13 +116,34 @@ $sel->bind_param('s', $operacion);
              <td class="borrar"> <button data-target="modal1" onclick="enviar(this.value)"  value="<?php echo $fn['id_propiedad'] ?>"  class="btn modal-trigger"><i class="material-icons">visibility</i></button></td>
              <td><?php echo $fn['nombre'] ?></td>
              <td><?php echo $fn['tel'] ?></td>
-             <td><?php echo $fn['correo'] ?></td>
+             <td><a href="correo.php?correo=<?php echo $fn['correo'] ?>&nombre=<?php echo $fn['nombre'] ?>&id_mensaje=<?php echo $fn['id'] ?>"><?php echo $fn['correo'] ?></a></td>
              <td><?php echo $fn['mensaje'] ?></td>
            </tr>
            <?php } ?>
          </table>
       </div>
-      <div id="resueltos">Resueltos...</div>
+      <div id="resueltos">
+      	<table>
+           <th>Vista</th>
+           <th>Solicitante</th>
+           <th>Telefono</th>
+           <th>Correo</th>
+           <th>Mensaje</th>
+           <?php          
+           $estatus = 'RESUELTO';
+           $sel_com->execute();
+           $res_resuelto = $sel_com->get_result();
+           while ($fr =$res_resuelto->fetch_assoc()) { ?>
+           <tr>
+             <td class="borrar"> <button data-target="modal1" onclick="enviar(this.value)"  value="<?php echo $fr['id_propiedad'] ?>"  class="btn modal-trigger"><i class="material-icons">visibility</i></button></td>
+             <td><?php echo $fr['nombre'] ?></td>
+             <td><?php echo $fr['tel'] ?></td>
+             <td><?php echo $fr['correo'] ?></td>
+             <td><?php echo $fr['mensaje'] ?></td>
+           </tr>
+           <?php } ?>
+         </table>
+      </div>
       </div>
   </div>
 	</div>
