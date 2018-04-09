@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body class="blue-grey lighten-5">
 <nav class="red">
-	<a href="#" class="brand-logo center">Logo</a>
+	<a href="index.php" class="brand-logo center">Logo</a>
 </nav>
 
 <div class="slider">

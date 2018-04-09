@@ -12,7 +12,7 @@
 </head>
 <body class="blue-grey lighten-5">
 <nav class="red">
-	<a href="#" class="brand-logo center">Logo</a>
+	<a href="index.php" class="brand-logo center">Logo</a>
 </nav>
 
 <div class="slider">
@@ -129,8 +129,48 @@
  		</div>
  	</div>
  </div>
- 
- 
+
+ <!--10.13 mapa de ubicacion y formulario de contacto -->
+<div class="row">
+	<div class="col s12">
+		<div class="card">
+			<div class="card-content">
+				<span class="card-title">Contacto</span>
+				<div class="row">
+					<div class="col s6">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127225.52486140061!2d-75.78380210400708!3d4.804770976782279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e388748eb56c1fd%3A0x95b39410f9f1dfbc!2sPereira%2C+Risaralda!5e0!3m2!1ses!2sco!4v1523214011016" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen class="z-depth-4"></iframe>
+</div>
+	<div class="col s6">
+		<div class="input-field">
+            <input type="text" name="nombre" pattern="[A-Za-z/s ]+"  title=""  id="nombre" required >
+            <label for="nombre">Nombre:</label>
+        </div>
+        <div class="input-field">
+            <input type="text" name="asunto"   title=""  id="asunto"  >
+                <label for="asunto">Asunto:</label>
+        </div>
+        <div class="input-field">
+            <input type="email" name="correo"   title=""  id="correo" required  >
+            <label for="correo">Correo:</label>
+        </div>
+        <div class="input-field">
+            <textarea name="mensaje" rows="8" cols="80" id="mensaje" onblur="may(this.value, this.id)" class="materialize-textarea"></textarea>
+        	<label for="">Mensaje:</label>                   
+        </div>
+        <button type="button" class="btn" id="enviar">Enviar</button>
+                 <!--10.10 para enviar formulario con metodo ajax -->
+        <div class="resultado"></div>
+		</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="page-footer red white-text center">
+	Copyright 2018 Empresa
+</footer>
+
  
  	<script
 	  
@@ -156,6 +196,23 @@
 				$('.res_estado').html(respuesta);
 			});
 	});
+		//10.13 enviar formulario por metodo ajax
+	$('#enviar').click(function(){ 
+      $.post('email.php',{
+        nombre:$('#nombre').val(),
+        asunto:$('#asunto').val(),
+        correo:$('#correo').val(),
+        mensaje:$('#mensaje').val(),
+        id_propiedad:$('#id_propiedad').val(),
+
+        beforeSend: function(){
+          $('.resultado').html("Espere un momento por favor");
+        }
+
+      }, function(respuesta){
+        $('.resultado').html(respuesta);
+      });
+  });
 	  </script>
 </body>
 </html>

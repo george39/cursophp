@@ -1,3 +1,4 @@
+<!--10.12 enviar correo al cliente -->
 <?php 
 include '../conexion/conexion.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
