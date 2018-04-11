@@ -17,6 +17,11 @@ if (isset($_SESSION['nick'])) { #pregunta si existe la variable desision
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	
 	<title>Proyecto</title>
+	<style media="screen" >
+		.input-field input: focus + label{
+			color: #ff9800 !important;
+		}
+	</style>
 </head>
 	<body class="grey lighten-2">
 

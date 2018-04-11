@@ -33,7 +33,31 @@ if (!isset($_SESSION['nick'])) { #pregunta si existe la variable desision
 	.button-collpase{
 		display: none;
 	}
+		.input-field input:focus + label{
+			color: #ff9800 !important;
+		}
+		/*para cambiar el color de las detras del dropdown */
+		.dropdown-content li >a, dropdown-content li > span{
+			color: #ff8800 !important;
+		}
+		/*para cambiar de color la linea*/
+		.row .input-field input:focus{
+			border-bottom: 1px solid #ff9800 !important;
+			box-shadow: 0 1px 0 0 #ff9800 !important;
+		}
+		.prefix{
+			color: #ff9800 !important;
+		}
+		/*para cambiar el color del boton*/
+		.btn {
+			background-color: #ff9800;
+		}
+		.btn:hover {
+			background-color: #ffcc80;
+		}
+	
 	/*21 para estandarizar todo el sistema con mayusculas */
+	
 	body{
 		text-transform: uppercase;
 	}

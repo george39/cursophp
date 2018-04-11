@@ -2,12 +2,45 @@
 <!--13 -->
 <!--21 correccion -->
 <?php include '../extend/header.php';
+#paginacion
+if (isset($_GET['ope'])) {
+   $operacion_paginacion = $con->real_escape_string(htmlentities($_GET['ope']));
+   $sel_paginacion = $con->prepare("SELECT propiedad FROM inventario WHERE estatus = 'ACTIVO' AND operacion = ?");
+   $sel_paginacion->bind_param('s', $operacion_paginacion);
+   $ope = "&ope=".$operacion_paginacion;
+ }else {
+  $sel_paginacion = $con->prepare("SELECT propiedad FROM inventario WHERE estatus = 'ACTIVO' "); 
+  $ope = "";        
+ }
+ $sel_paginacion->execute();
+ $res_paginacion=$sel_paginacion->get_result();
+ $row = mysqli_num_rows($res_paginacion);
+ $numero_registros=3;
+#para redondear el numero de paginas
+ $total_paginas = ceil($row/$numero_registros);
+ #isset es si existe
+ if (isset($_GET['pag'])) {
+   $pagina = $_GET['pag'];
+ }else {
+  $pagina = 1;
+ }
+
+ if ($pagina == 1) {
+   $inicio = 0;
+ }else {
+  $res = $pagina-1;
+  $inicio = ($numero_registros * $res);
+ }
+
+
+
+
 if (isset($_GET['ope'])) {
    $operacion = $con->real_escape_string(htmlentities($_GET['ope']));
-   $sel = $con->prepare("SELECT propiedad, consecutivo,nombre_cliente,calle_num,fraccionamiento,estado,municipio,precio,forma_pago,asesor,tipo_inmueble,operacion,mapa,marcado FROM inventario WHERE estatus = 'ACTIVO' AND operacion = ?");
+   $sel = $con->prepare("SELECT propiedad, consecutivo,nombre_cliente,calle_num,fraccionamiento,estado,municipio,precio,forma_pago,asesor,tipo_inmueble,operacion,mapa,marcado FROM inventario WHERE estatus = 'ACTIVO' AND operacion = ? LIMIT $inicio,$numero_registros");
    $sel->bind_param('s', $operacion);
  }else {
-  $sel = $con->prepare("SELECT propiedad, consecutivo,nombre_cliente,calle_num,fraccionamiento,estado,municipio,precio,forma_pago,asesor,tipo_inmueble,operacion, mapa, marcado FROM inventario WHERE estatus = 'ACTIVO' ");
+  $sel = $con->prepare("SELECT propiedad, consecutivo,nombre_cliente,calle_num,fraccionamiento,estado,municipio,precio,forma_pago,asesor,tipo_inmueble,operacion, mapa, marcado FROM inventario WHERE estatus = 'ACTIVO' LIMIT $inicio,$numero_registros ");
          
  } 
 
@@ -38,6 +71,7 @@ if (isset($_GET['ope'])) {
         <span class="card-title">Propiedades
           <button class="btn-floating green botonExcel"><i class="material-icons">grid_on</i></button>
           <input type="hidden" name="datos" id="datos"> 
+          <a href="mapa_completo.php" class="btn btn-floating red" target="_blank"><i class="material-icons">map</i></a>
         </span>          
         </form>        
         <table class="excel" border="1">
@@ -103,6 +137,16 @@ if (isset($_GET['ope'])) {
     </div>
   </div>
 </div>
+<!--paginacion -->
+<ul>
+  <?php
+    $pag = 0;
+    while ($pag < $total_paginas) {
+      $pag++;
+      ?>
+      <li><a href="index.php?pag=<?php echo $pag; echo $ope; ?>"><?php echo $pag ?></a></li>
+    <?php } ?>
+</ul>
 
   <!--14 vidta modal -->
   <!--<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
