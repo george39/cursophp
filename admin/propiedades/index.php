@@ -138,15 +138,31 @@ if (isset($_GET['ope'])) {
   </div>
 </div>
 <!--paginacion -->
-<ul>
-  <?php
-    $pag = 0;
-    while ($pag < $total_paginas) {
-      $pag++;
-      ?>
-      <li><a href="index.php?pag=<?php echo $pag; echo $ope; ?>"><?php echo $pag ?></a></li>
-    <?php } ?>
-</ul>
+<?php 
+  $atras = $pagina -1;
+  $adelante = $pagina +1;
+?>
+<center><p>TOTAL PAGINAS: <?php echo $total_paginas ?></p></center>
+<div class="row">
+  <div class="col s4" align="right">
+    <?php if ($pagina > 1): ?>
+      <a href="index.php?pag=<?php echo $atras; echo $ope; ?>" class="btn btn-floating"><i class="material-icons">chevron_left</i></a>
+    <?php endif; ?>
+  </div>
+  <div class="col s4">
+    <form action="index.php" method="get">
+      <input type="number" name="pag" size="1" placeholder="PAGINA ACTUAL: <?php echo $pagina ?>">
+      <?php if (isset($_GET['ope'])): ?>
+        <input type="hidden" name="ope" value="<?php echo $operacion_paginacion ?>">
+        <?php endif; ?>
+    </form>
+  </div>
+  <div class="col s4" >
+    <?php if ($pagina < $total_paginas): ?>
+      <a href="index.php?pag=<?php echo $adelante; echo $ope; ?>" class="btn btn-floating"><i class="material-icons">chevron_right</i></a>
+    <?php endif; ?>
+  </div>
+</div>
 
   <!--14 vidta modal -->
   <!--<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
